@@ -138,13 +138,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [  BASE_DIR / "statics" ]
 
 
-
-
-SECURE_SSL_REDIRECT = False
 #social auth
 SOCIAL_AUTH_FACEBOOK_KEY   = '1374781969553677'
 SOCIAL_AUTH_FACEBOOK_SECRET   = '729a92c779fd9a66d137efb8094e4430'
 
+# modify the redirect url
+SOCIAL_AUTH_LOGIN_REDIRECT_URL  = '/login/'
+
+SECURE_SSL_REDIRECT = False
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
@@ -152,3 +153,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+
+
+# python3 manage.py runserver_plus --cert-file /etc/nginx/sites-available/crt/crt.crt --key-file /etc/nginx/sites-available/crt/crt.key aurther.club:8000
